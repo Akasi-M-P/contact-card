@@ -53,7 +53,7 @@ export class AddContactForm extends Component {
             </fieldset>
             <fieldset>
               <input
-                placeholder="Your Phone Number"
+                placeholder="Phone Number"
                 type="text"
                 tabIndex="2"
                 required

@@ -1,4 +1,5 @@
-
+			/* Add Contact Form */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 .main-container {
 	margin-top: 1rem;
 	background-color: whitesmoke;
@@ -25,7 +26,7 @@
 
 .card{
 	width: 200px; /* ⬅ Size - Small (width: 200px), Medium (width: 225px), Large (width: 250px) */
-	height: 340px;
+	height: 320px;
 	overflow: hidden;
 	background-color: #FFFFFF;
    
@@ -68,7 +69,7 @@
 }
 
 	.card .avatar{
-		background-image: url("https://media.licdn.com/dms/image/D4D03AQFiR3KMfNOtPw/profile-displayphoto-shrink_100_100/0/1665735711704?e=1688601600&v=beta&t=VgPo-_vpeI9FeME_2lGsB4GC6ZXwlczT3ua7hjoBsxo");
+		background-image: url("https://media.licdn.com/dms/image/D4D03AQEVW7zVK_7gqQ/profile-displayphoto-shrink_100_100/0/1683189971943?e=1688601600&v=beta&t=mXzQe0BaX1vhzvDSCzEpMPL8IpcVoUPLlSOoQmf5HYw");
 	}
 
 h3, a, i{
@@ -128,6 +129,7 @@ ul{
 	cursor: pointer;
 	width: 50px;
 	border-radius: 10px;
+	margin: 5px 10px;
 }
 
 .ud-card p:hover {
@@ -140,8 +142,7 @@ ul{
 	text-align: center;
 }
 
-			/* Add Contact Form */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
 
 
 

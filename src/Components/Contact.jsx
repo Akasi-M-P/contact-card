@@ -1,5 +1,11 @@
 /* eslint-disable react/prop-types */
 const Contact = (props) => {
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    props.deleteContact(props.contactsData.id);
+  };
+
   return (
     <>
       <div className="card">
@@ -11,7 +17,7 @@ const Contact = (props) => {
         <a href="">🌏 {props.contactsData.location}</a>
         <div className="ud-card">
           <p>Edit</p>
-          <p>Delete</p>
+          <p onClick={handleDelete}>Delete</p>
         </div>
         <ul>
           <li>

@@ -7,7 +7,13 @@ const Contacts = (props) => {
       <div className="main-container">
         <div className="contact-col">
           {props.contactsData.map((contact, index) => {
-            return <Contact contactsData={contact} key={index} />;
+            return (
+              <Contact
+                contactsData={contact}
+                key={index}
+                deleteContact={props.deleteContact}
+              />
+            );
           })}
         </div>
       </div>
