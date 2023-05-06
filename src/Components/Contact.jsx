@@ -1,5 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
+import { useState } from "react";
+import { Modal } from "react-bootstrap";
+import EditContact from "./EditContact";
+
 const Contact = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleDelete = (e) => {
     e.preventDefault();
@@ -8,6 +17,19 @@ const Contact = (props) => {
 
   return (
     <>
+      <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Contact</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <EditContact
+            contactsData={props.contactsData}
+            editContact={props.editContact}
+            closeModal={handleClose}
+          />
+        </Modal.Body>
+      </Modal>
+
       <div className="card">
         <div className="banner">
           <div className="avatar"></div>
@@ -16,7 +38,7 @@ const Contact = (props) => {
         <a href="">📱 {props.contactsData.phoneNumber}</a>
         <a href="">🌏 {props.contactsData.location}</a>
         <div className="ud-card">
-          <p>Edit</p>
+          <p onClick={handleShow}>Edit</p>
           <p onClick={handleDelete}>Delete</p>
         </div>
         <ul>
@@ -45,5 +67,5 @@ const Contact = (props) => {
       </div>
     </>
   );
-}
-export default Contact
+};
+export default Contact;

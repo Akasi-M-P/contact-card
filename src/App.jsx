@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import AddContactForm from "./Components/AddContactForm";
 import Contacts from "./Components/Contacts";
@@ -14,13 +13,14 @@ class App extends Component {
           name: "Peter",
           phoneNumber: "0500141412",
           location: "London",
-          id: uuidv4,
+          id: "5627241",
         },
       ],
     };
   }
 
   addNewContact = (contact) => {
+    contact.id = Math.random().toString;
     this.setState({
       contacts: [...this.state.contacts, contact],
     });
@@ -35,6 +35,14 @@ class App extends Component {
     });
   };
 
+  editContact = (id, updatedContact) => {
+    this.setState({
+      contacts: this.state.contacts.map((contact) =>
+        contact.id === id ? updatedContact : contact
+      ),
+    });
+  };
+
   render() {
     return (
       <>
@@ -46,6 +54,7 @@ class App extends Component {
             <Contacts
               contactsData={this.state.contacts}
               deleteContact={this.deleteContact}
+              editContact={this.editContact}
             />
           </div>
         </div>
