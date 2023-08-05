@@ -1,14 +1,17 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { Component } from 'react'
+import { Component } from "react";
+import { connect } from "react-redux";
+import { addContact } from "../Components/contactActions";
 
-export class AddContactForm extends Component {
+class AddContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
       phoneNumber: "",
       location: "",
-    }
+    };
   }
 
   handleChange = (e) => {
@@ -17,7 +20,7 @@ export class AddContactForm extends Component {
       [e.target.name]: e.target.value,
     });
 
-    console.log(this.state)
+    console.log(this.state);
   };
 
   handleSubmit = (e) => {
@@ -28,7 +31,7 @@ export class AddContactForm extends Component {
       phoneNumber: "",
       location: "",
     });
-  }
+  };
 
   render() {
     return (
@@ -89,4 +92,10 @@ export class AddContactForm extends Component {
   }
 }
 
-export default AddContactForm
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addContact: (contact) => dispatch(addContact(contact)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddContactForm);

@@ -1,66 +1,27 @@
-import { Component } from 'react';
+// src/App.js
+
+import { Provider } from "react-redux";
+import store from "./Components/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import AddContactForm from "./Components/AddContactForm";
 import Contacts from "./Components/Contacts";
+import EditContact from "./Components/EditContact"; // Import EditContact component
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contacts: [
-        {
-          name: "Peter",
-          phoneNumber: "0500141412",
-          location: "London",
-          id: "5627241",
-        },
-      ],
-    };
-  }
-
-  addNewContact = (contact) => {
-    contact.id = Math.random().toString;
-    this.setState({
-      contacts: [...this.state.contacts, contact],
-    });
-  };
-
-  deleteContact = (id) => {
-    const undeletedContacts = this.state.contacts.filter(
-      (contact) => contact.id !== id
-    );
-    this.setState({
-      contacts: undeletedContacts,
-    });
-  };
-
-  editContact = (id, updatedContact) => {
-    this.setState({
-      contacts: this.state.contacts.map((contact) =>
-        contact.id === id ? updatedContact : contact
-      ),
-    });
-  };
-
-  render() {
-    return (
-      <>
-        <div className="main-container">
-          <div className="detail-col">
-            <AddContactForm addContact={this.addNewContact} />
-          </div>
-          <div className="contact-col">
-            <Contacts
-              contactsData={this.state.contacts}
-              deleteContact={this.deleteContact}
-              editContact={this.editContact}
-            />
-          </div>
+function App() {
+  return (
+    <Provider store={store}>
+      <div className="main-container">
+        <div className="detail-col">
+          <AddContactForm />
         </div>
-      </>
-    );
-  }
+        <div className="contact-col">
+          <Contacts />
+        </div>
+      </div>
+      <EditContact /> {/* Render EditContact component */}
+    </Provider>
+  );
 }
 
-export default App
+export default App;
